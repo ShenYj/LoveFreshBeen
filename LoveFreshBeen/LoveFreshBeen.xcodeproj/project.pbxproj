@@ -32,6 +32,8 @@
 		F74FDF971D59EA85006F21E3 /* JSHomeDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF961D59EA85006F21E3 /* JSHomeDataModel.m */; };
 		F74FDF9A1D5A015B006F21E3 /* JSFocusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF991D5A015B006F21E3 /* JSFocusModel.m */; };
 		F74FDF9D1D5A021B006F21E3 /* JSIconsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF9C1D5A021B006F21E3 /* JSIconsModel.m */; };
+		F74FDFA01D5A08F4006F21E3 /* JSFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF9F1D5A08F4006F21E3 /* JSFlowLayout.m */; };
+		F74FDFA31D5A1DCA006F21E3 /* JSCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDFA21D5A1DCA006F21E3 /* JSCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,8 +77,8 @@
 		F74FDF7D1D599C7B006F21E3 /* JSHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSHeaderView.m; sourceTree = "<group>"; };
 		F74FDF801D59A536006F21E3 /* JSLoopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSLoopView.h; sourceTree = "<group>"; };
 		F74FDF811D59A536006F21E3 /* JSLoopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSLoopView.m; sourceTree = "<group>"; };
-		F74FDF831D59ADB9006F21E3 /* JSMenumView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSMenumView.h; sourceTree = "<group>"; };
-		F74FDF841D59ADB9006F21E3 /* JSMenumView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSMenumView.m; sourceTree = "<group>"; };
+		F74FDF831D59ADB9006F21E3 /* JSMenumView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSMenumView.h; path = HeaderLoopView/JSMenumView.h; sourceTree = "<group>"; };
+		F74FDF841D59ADB9006F21E3 /* JSMenumView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSMenumView.m; path = HeaderLoopView/JSMenumView.m; sourceTree = "<group>"; };
 		F74FDF921D59E8A4006F21E3 /* JSActivitiesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSActivitiesModel.h; sourceTree = "<group>"; };
 		F74FDF931D59E8A4006F21E3 /* JSActivitiesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSActivitiesModel.m; sourceTree = "<group>"; };
 		F74FDF951D59EA85006F21E3 /* JSHomeDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSHomeDataModel.h; sourceTree = "<group>"; };
@@ -85,6 +87,10 @@
 		F74FDF991D5A015B006F21E3 /* JSFocusModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSFocusModel.m; sourceTree = "<group>"; };
 		F74FDF9B1D5A021B006F21E3 /* JSIconsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSIconsModel.h; sourceTree = "<group>"; };
 		F74FDF9C1D5A021B006F21E3 /* JSIconsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSIconsModel.m; sourceTree = "<group>"; };
+		F74FDF9E1D5A08F4006F21E3 /* JSFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSFlowLayout.h; sourceTree = "<group>"; };
+		F74FDF9F1D5A08F4006F21E3 /* JSFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSFlowLayout.m; sourceTree = "<group>"; };
+		F74FDFA11D5A1DCA006F21E3 /* JSCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSCollectionViewCell.h; sourceTree = "<group>"; };
+		F74FDFA21D5A1DCA006F21E3 /* JSCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -431,11 +437,13 @@
 		F74FDF751D598955006F21E3 /* SubViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F74FDF7F1D59A51F006F21E3 /* HeaderLoopView */,
 				F74FDF761D598978006F21E3 /* JSScanViewController.h */,
 				F74FDF771D598978006F21E3 /* JSScanViewController.m */,
 				F74FDF7C1D599C7B006F21E3 /* JSHeaderView.h */,
 				F74FDF7D1D599C7B006F21E3 /* JSHeaderView.m */,
+				F74FDF831D59ADB9006F21E3 /* JSMenumView.h */,
+				F74FDF841D59ADB9006F21E3 /* JSMenumView.m */,
+				F74FDF7F1D59A51F006F21E3 /* HeaderLoopView */,
 			);
 			path = SubViewControllers;
 			sourceTree = "<group>";
@@ -445,8 +453,10 @@
 			children = (
 				F74FDF801D59A536006F21E3 /* JSLoopView.h */,
 				F74FDF811D59A536006F21E3 /* JSLoopView.m */,
-				F74FDF831D59ADB9006F21E3 /* JSMenumView.h */,
-				F74FDF841D59ADB9006F21E3 /* JSMenumView.m */,
+				F74FDF9E1D5A08F4006F21E3 /* JSFlowLayout.h */,
+				F74FDF9F1D5A08F4006F21E3 /* JSFlowLayout.m */,
+				F74FDFA11D5A1DCA006F21E3 /* JSCollectionViewCell.h */,
+				F74FDFA21D5A1DCA006F21E3 /* JSCollectionViewCell.m */,
 			);
 			path = HeaderLoopView;
 			sourceTree = "<group>";
@@ -585,9 +595,11 @@
 				F74FDF9A1D5A015B006F21E3 /* JSFocusModel.m in Sources */,
 				F74FDF741D597A57006F21E3 /* JSCustomFrameButton.m in Sources */,
 				F74FDF7E1D599C7B006F21E3 /* JSHeaderView.m in Sources */,
+				F74FDFA31D5A1DCA006F21E3 /* JSCollectionViewCell.m in Sources */,
 				F74FDF451D596271006F21E3 /* UIImage+Color.m in Sources */,
 				F74FDF491D59652D006F21E3 /* JSTabBarViewController.m in Sources */,
 				F74FDF821D59A536006F21E3 /* JSLoopView.m in Sources */,
+				F74FDFA01D5A08F4006F21E3 /* JSFlowLayout.m in Sources */,
 				F74FDF641D596B2C006F21E3 /* JSStoreTableViewController.m in Sources */,
 				F74FDF781D598978006F21E3 /* JSScanViewController.m in Sources */,
 				F74FDF671D596B46006F21E3 /* JSCartTableViewController.m in Sources */,

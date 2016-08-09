@@ -19,17 +19,23 @@
 
 @end
 
-@implementation JSHeaderView
+@implementation JSHeaderView{
+    // 首页数据
+    JSHomeDataModel *_data;
+}
 
-- (instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame withData:(JSHomeDataModel *)data{
     
     self = [super initWithFrame:frame];
     if (self) {
+        // 成员变量赋值
+        _data = data;
         
         [self prepareHeaderView];
     }
     return self;
 }
+
 
 
 // 设置视图
@@ -41,18 +47,11 @@
     
 }
 
+
+
 - (void)layoutSubviews{
     [super layoutSubviews];
     
-//    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.top.right.mas_equalTo(self);
-//        make.height.mas_equalTo(300);
-//    }];
-    
-//    [self.bottomMenumView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.mas_equalTo(self.collectionView.mas_bottom);
-//        make.left.bottom.right.mas_equalTo(self);
-//    }];
     [self.bottomMenumView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.collectionView.mas_bottom);
         make.left.right.bottom.mas_equalTo(self);
@@ -65,7 +64,9 @@
 - (JSLoopView *)collectionView{
     
     if (_collectionView == nil) {
-        _collectionView = [[JSLoopView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 250)];
+        
+        _collectionView = [[JSLoopView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 200) withData:_data];
+        
     }
     return _collectionView;
 }

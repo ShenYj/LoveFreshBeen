@@ -13,119 +13,94 @@
 #import "JSHomeDataModel.h"
 #import "JSActivitiesModel.h"
 
+static CGFloat headerViewHeight = 250;
 
 @interface JSHomeTableViewController ()
 
+// 导航栏左侧扫一扫按钮
 @property (nonatomic,strong) JSCustomFrameButton *leftScanButton;
+// 导航栏右侧搜索按钮
 @property (nonatomic,strong) JSCustomFrameButton *rightSearchButton;
+// 自定义HeaderView
+@property (nonatomic,strong) JSHeaderView *headerView;
 
-// 首页数据容器
-@property (nonatomic,strong) NSArray <JSHomeDataModel *> *dataArr;
 
 @end
 
-@implementation JSHomeTableViewController
+@implementation JSHomeTableViewController{
+    
+    // 首页数据容器
+    JSHomeDataModel *_homeData;
+}
+
++ (void)load{
+    [super load];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // 设置导航栏视图
-    [self prepareNavigationItems];
-    
     // 请求首页数据
     [self loadHomePageData];
-    
-    // 设置HeaderView视图
-    [self prepareHeaderView];
-    
-    // 请求数据
-    [self prepareHeaderView];
+     
+    // 设置导航栏视图
+    [self prepareNavigationItems];
     
 }
 
 #pragma mark -- 设置头View视图
 - (void)prepareHeaderView{
     
-    self.tableView.tableHeaderView = [[JSHeaderView alloc] initWithFrame:CGRectMake(0, 0, 0, 320)];
+    JSHeaderView *headerView = [[JSHeaderView alloc] initWithFrame:CGRectMake(0, 0, 0, headerViewHeight) withData:_homeData];
+    headerView.backgroundColor = [UIColor js_randomColor];
+    self.tableView.tableHeaderView = headerView;
 }
 
 // 请求首页数据
 - (void)loadHomePageData{
     
-    NSDictionary *para = @{
-                           @"call": @"1"
-                           };
-    
-    
+    NSDictionary *para = @{@"call": @"1"};
     [[JSNetworkManager sharedManager] requestHomePageDataWithParameters:para withfinishedBlock:^(id res, NSError *error) {
         
         if (res == nil || error != nil) {
-            
             NSLog(@"请求数据失败:%@",error);
             return ;
         }
         NSDictionary *data = res[@"data"];
-        
-        NSLog(@"%@",data);
-//
-//        NSLog(@"%@",[data[@"activities"] class]);
-//        NSLog(@"%@",[data[@"focus"] class]);
-//        NSLog(@"%@",[data[@"icons"] class]);
+//        NSLog(@"%@",data);
         
         JSHomeDataModel *dataModel = [JSHomeDataModel DataWithDict:data];
-        NSArray *arr = [NSArray arrayWithObject:dataModel];
+        // 成员变量赋值
+        _homeData = dataModel;
         
-        NSLog(@"%@",dataModel.activities);
-        NSLog(@"%@",dataModel.focus);
-        NSLog(@"%@",dataModel.icons);
-        
-        
-//        NSDictionary; *activitiesDict = [data[@"activities"] lastObject];
-        
-
-//        
-//        for (NSDictionary *dict in activitiesDict) {
-//            
-//            JSActivitiesModel *model = [JSActivitiesModel activitiesWithDict:activitiesDict];
-//            [mArr addObject:model];
-//        }
-//        NSLog(@"%@",mArr);
-//        
-//        weakSelf.dataArr = mArr.copy;
+        // 设置HeaderView视图
+        [self prepareHeaderView];
         
     }];
+
     
 }
+
 
 // 设置导航栏视图
 - (void)prepareNavigationItems{
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.leftScanButton];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.rightSearchButton];
-    
-//    self.navigationItem.titleView = []
 
 }
 
 
 // 导航栏按钮点击事件
 - (void)clickLeftNavButton:(UIBarButtonItem *)button{
-    NSLog(@"点击左侧导航栏按钮");
     
     JSScanViewController *scanViewController = [[JSScanViewController alloc] init];
-//    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"v2_goback"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(clickBackNavButton:)];
     [self.navigationController pushViewController:scanViewController animated:YES];
 }
 
 - (void)clickRightNavButton:(UIBarButtonItem *)button{
     NSLog(@"点击右侧导航栏按钮");
 }
-
-
-//- (void)clickBackNavButton:(UIBarButtonItem *)button{
-//    [self.navigationController popViewControllerAnimated:YES];
-//}
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -147,13 +122,6 @@
 
 #pragma mark -- 懒加载
 
-- (NSArray *)dataArr{
-    
-    if (_dataArr == nil) {
-        _dataArr = [NSArray array];
-    }
-    return _dataArr;
-}
 
 - (UIButton *)leftScanButton{
     if (_leftScanButton == nil) {

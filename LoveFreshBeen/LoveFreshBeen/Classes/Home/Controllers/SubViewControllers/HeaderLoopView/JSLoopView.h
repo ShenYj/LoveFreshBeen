@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JSHomeDataModel.h"
+
 
 @interface JSLoopView : UICollectionView
+
+@property (nonatomic,strong) JSHomeDataModel *data;
+
+- (instancetype)initWithFrame:(CGRect)frame withData:(JSHomeDataModel *)data;
 
 @end
