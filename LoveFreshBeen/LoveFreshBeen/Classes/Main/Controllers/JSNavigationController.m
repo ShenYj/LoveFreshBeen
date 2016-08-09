@@ -30,6 +30,9 @@
     
     [self.navigationBar setBackgroundImage:[backgroundImage stretchableImageWithLeftCapWidth:backgroundImage.size.width*0.5 topCapHeight:backgroundImage.size.height*0.5] forBarMetrics:UIBarMetricsDefault];
     
+//    [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor blackColor]}];
+    
+//    self.navigationBar.tintColor = [UIColor blackColor];
     
 }
 

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JSNavigationButton : UIButton
+@interface JSCustomFrameButton : UIButton
 
 @end

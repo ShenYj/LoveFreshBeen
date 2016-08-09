@@ -7,13 +7,20 @@
 //
 
 #import "JSHomeTableViewController.h"
-#import "JSNavigationButton.h"
+#import "JSScanViewController.h"
+#import "JSCustomFrameButton.h"
+#import "JSHeaderView.h"
+#import "JSHomeDataModel.h"
+#import "JSActivitiesModel.h"
 
 
 @interface JSHomeTableViewController ()
 
-@property (nonatomic,strong) JSNavigationButton *leftScanButton;
-@property (nonatomic,strong) JSNavigationButton *rightSearchButton;
+@property (nonatomic,strong) JSCustomFrameButton *leftScanButton;
+@property (nonatomic,strong) JSCustomFrameButton *rightSearchButton;
+
+// 首页数据容器
+@property (nonatomic,strong) NSArray <JSHomeDataModel *> *dataArr;
 
 @end
 
@@ -22,16 +29,81 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // 设置导航栏视图
     [self prepareNavigationItems];
+    
+    // 请求首页数据
+    [self loadHomePageData];
+    
+    // 设置HeaderView视图
+    [self prepareHeaderView];
+    
+    // 请求数据
+    [self prepareHeaderView];
     
 }
 
+#pragma mark -- 设置头View视图
+- (void)prepareHeaderView{
+    
+    self.tableView.tableHeaderView = [[JSHeaderView alloc] initWithFrame:CGRectMake(0, 0, 0, 320)];
+}
+
+// 请求首页数据
+- (void)loadHomePageData{
+    
+    NSDictionary *para = @{
+                           @"call": @"1"
+                           };
+    
+    
+    [[JSNetworkManager sharedManager] requestHomePageDataWithParameters:para withfinishedBlock:^(id res, NSError *error) {
+        
+        if (res == nil || error != nil) {
+            
+            NSLog(@"请求数据失败:%@",error);
+            return ;
+        }
+        NSDictionary *data = res[@"data"];
+        
+        NSLog(@"%@",data);
+//
+//        NSLog(@"%@",[data[@"activities"] class]);
+//        NSLog(@"%@",[data[@"focus"] class]);
+//        NSLog(@"%@",[data[@"icons"] class]);
+        
+        JSHomeDataModel *dataModel = [JSHomeDataModel DataWithDict:data];
+        NSArray *arr = [NSArray arrayWithObject:dataModel];
+        
+        NSLog(@"%@",dataModel.activities);
+        NSLog(@"%@",dataModel.focus);
+        NSLog(@"%@",dataModel.icons);
+        
+        
+//        NSDictionary; *activitiesDict = [data[@"activities"] lastObject];
+        
+
+//        
+//        for (NSDictionary *dict in activitiesDict) {
+//            
+//            JSActivitiesModel *model = [JSActivitiesModel activitiesWithDict:activitiesDict];
+//            [mArr addObject:model];
+//        }
+//        NSLog(@"%@",mArr);
+//        
+//        weakSelf.dataArr = mArr.copy;
+        
+    }];
+    
+}
+
+// 设置导航栏视图
 - (void)prepareNavigationItems{
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.leftScanButton];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.rightSearchButton];
     
-    
+//    self.navigationItem.titleView = []
 
 }
 
@@ -39,11 +111,20 @@
 // 导航栏按钮点击事件
 - (void)clickLeftNavButton:(UIBarButtonItem *)button{
     NSLog(@"点击左侧导航栏按钮");
+    
+    JSScanViewController *scanViewController = [[JSScanViewController alloc] init];
+//    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"v2_goback"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(clickBackNavButton:)];
+    [self.navigationController pushViewController:scanViewController animated:YES];
 }
 
 - (void)clickRightNavButton:(UIBarButtonItem *)button{
     NSLog(@"点击右侧导航栏按钮");
 }
+
+
+//- (void)clickBackNavButton:(UIBarButtonItem *)button{
+//    [self.navigationController popViewControllerAnimated:YES];
+//}
 
 
 - (void)didReceiveMemoryWarning {
@@ -66,9 +147,17 @@
 
 #pragma mark -- 懒加载
 
+- (NSArray *)dataArr{
+    
+    if (_dataArr == nil) {
+        _dataArr = [NSArray array];
+    }
+    return _dataArr;
+}
+
 - (UIButton *)leftScanButton{
     if (_leftScanButton == nil) {
-        _leftScanButton = [[JSNavigationButton alloc] init];
+        _leftScanButton = [[JSCustomFrameButton alloc] init];
         [_leftScanButton setImage:[UIImage imageNamed:@"icon_black_scancode"] forState:UIControlStateNormal];
         [_leftScanButton setTitle:@"扫一扫" forState:UIControlStateNormal];
         [_leftScanButton addTarget:self action:@selector(clickLeftNavButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -80,7 +169,7 @@
 
 - (UIButton *)rightSearchButton{
     if (_rightSearchButton == nil) {
-        _rightSearchButton = [[JSNavigationButton alloc] init];
+        _rightSearchButton = [[JSCustomFrameButton alloc] init];
         [_rightSearchButton setImage:[UIImage imageNamed:@"icon_search"] forState:UIControlStateNormal];
         [_rightSearchButton setTitle:@"搜索" forState:UIControlStateNormal];
         [_rightSearchButton addTarget:self action:@selector(clickRightNavButton:) forControlEvents:UIControlEventTouchUpInside];

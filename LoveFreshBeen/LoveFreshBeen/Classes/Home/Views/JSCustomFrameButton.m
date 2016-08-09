@@ -6,10 +6,10 @@
 //  Copyright © 2016年 ___ShenYJ___. All rights reserved.
 //
 
-#import "JSNavigationButton.h"
+#import "JSCustomFrameButton.h"
 #import "UIView+JSFrame.h"
 
-@implementation JSNavigationButton
+@implementation JSCustomFrameButton
 
 - (instancetype)init{
     

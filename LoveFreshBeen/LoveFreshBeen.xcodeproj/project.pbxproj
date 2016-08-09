@@ -22,7 +22,16 @@
 		F74FDF641D596B2C006F21E3 /* JSStoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF631D596B2C006F21E3 /* JSStoreTableViewController.m */; };
 		F74FDF671D596B46006F21E3 /* JSCartTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF661D596B46006F21E3 /* JSCartTableViewController.m */; };
 		F74FDF711D59742B006F21E3 /* UIView+JSFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF701D59742B006F21E3 /* UIView+JSFrame.m */; };
-		F74FDF741D597A57006F21E3 /* JSNavigationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF731D597A57006F21E3 /* JSNavigationButton.m */; };
+		F74FDF741D597A57006F21E3 /* JSCustomFrameButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF731D597A57006F21E3 /* JSCustomFrameButton.m */; };
+		F74FDF781D598978006F21E3 /* JSScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF771D598978006F21E3 /* JSScanViewController.m */; };
+		F74FDF7B1D599004006F21E3 /* JSNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF7A1D599004006F21E3 /* JSNetworkManager.m */; };
+		F74FDF7E1D599C7B006F21E3 /* JSHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF7D1D599C7B006F21E3 /* JSHeaderView.m */; };
+		F74FDF821D59A536006F21E3 /* JSLoopView.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF811D59A536006F21E3 /* JSLoopView.m */; };
+		F74FDF851D59ADB9006F21E3 /* JSMenumView.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF841D59ADB9006F21E3 /* JSMenumView.m */; };
+		F74FDF941D59E8A4006F21E3 /* JSActivitiesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF931D59E8A4006F21E3 /* JSActivitiesModel.m */; };
+		F74FDF971D59EA85006F21E3 /* JSHomeDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF961D59EA85006F21E3 /* JSHomeDataModel.m */; };
+		F74FDF9A1D5A015B006F21E3 /* JSFocusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF991D5A015B006F21E3 /* JSFocusModel.m */; };
+		F74FDF9D1D5A021B006F21E3 /* JSIconsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF9C1D5A021B006F21E3 /* JSIconsModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,8 +65,26 @@
 		F74FDF661D596B46006F21E3 /* JSCartTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSCartTableViewController.m; sourceTree = "<group>"; };
 		F74FDF6F1D59742B006F21E3 /* UIView+JSFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JSFrame.h"; sourceTree = "<group>"; };
 		F74FDF701D59742B006F21E3 /* UIView+JSFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JSFrame.m"; sourceTree = "<group>"; };
-		F74FDF721D597A57006F21E3 /* JSNavigationButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSNavigationButton.h; sourceTree = "<group>"; };
-		F74FDF731D597A57006F21E3 /* JSNavigationButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSNavigationButton.m; sourceTree = "<group>"; };
+		F74FDF721D597A57006F21E3 /* JSCustomFrameButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSCustomFrameButton.h; sourceTree = "<group>"; };
+		F74FDF731D597A57006F21E3 /* JSCustomFrameButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSCustomFrameButton.m; sourceTree = "<group>"; };
+		F74FDF761D598978006F21E3 /* JSScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSScanViewController.h; sourceTree = "<group>"; };
+		F74FDF771D598978006F21E3 /* JSScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSScanViewController.m; sourceTree = "<group>"; };
+		F74FDF791D599004006F21E3 /* JSNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSNetworkManager.h; sourceTree = "<group>"; };
+		F74FDF7A1D599004006F21E3 /* JSNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSNetworkManager.m; sourceTree = "<group>"; };
+		F74FDF7C1D599C7B006F21E3 /* JSHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSHeaderView.h; sourceTree = "<group>"; };
+		F74FDF7D1D599C7B006F21E3 /* JSHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSHeaderView.m; sourceTree = "<group>"; };
+		F74FDF801D59A536006F21E3 /* JSLoopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSLoopView.h; sourceTree = "<group>"; };
+		F74FDF811D59A536006F21E3 /* JSLoopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSLoopView.m; sourceTree = "<group>"; };
+		F74FDF831D59ADB9006F21E3 /* JSMenumView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSMenumView.h; sourceTree = "<group>"; };
+		F74FDF841D59ADB9006F21E3 /* JSMenumView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSMenumView.m; sourceTree = "<group>"; };
+		F74FDF921D59E8A4006F21E3 /* JSActivitiesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSActivitiesModel.h; sourceTree = "<group>"; };
+		F74FDF931D59E8A4006F21E3 /* JSActivitiesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSActivitiesModel.m; sourceTree = "<group>"; };
+		F74FDF951D59EA85006F21E3 /* JSHomeDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSHomeDataModel.h; sourceTree = "<group>"; };
+		F74FDF961D59EA85006F21E3 /* JSHomeDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSHomeDataModel.m; sourceTree = "<group>"; };
+		F74FDF981D5A015B006F21E3 /* JSFocusModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSFocusModel.h; sourceTree = "<group>"; };
+		F74FDF991D5A015B006F21E3 /* JSFocusModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSFocusModel.m; sourceTree = "<group>"; };
+		F74FDF9B1D5A021B006F21E3 /* JSIconsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSIconsModel.h; sourceTree = "<group>"; };
+		F74FDF9C1D5A021B006F21E3 /* JSIconsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSIconsModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				F74FDF3D1D596265006F21E3 /* Extension */,
+				F74FDF791D599004006F21E3 /* JSNetworkManager.h */,
+				F74FDF7A1D599004006F21E3 /* JSNetworkManager.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -199,6 +228,7 @@
 			children = (
 				F74FDF5F1D596B0F006F21E3 /* JSHomeTableViewController.h */,
 				F74FDF601D596B0F006F21E3 /* JSHomeTableViewController.m */,
+				F74FDF751D598955006F21E3 /* SubViewControllers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -206,6 +236,14 @@
 		F74FDF2B1D59601B006F21E3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F74FDF951D59EA85006F21E3 /* JSHomeDataModel.h */,
+				F74FDF961D59EA85006F21E3 /* JSHomeDataModel.m */,
+				F74FDF921D59E8A4006F21E3 /* JSActivitiesModel.h */,
+				F74FDF931D59E8A4006F21E3 /* JSActivitiesModel.m */,
+				F74FDF981D5A015B006F21E3 /* JSFocusModel.h */,
+				F74FDF991D5A015B006F21E3 /* JSFocusModel.m */,
+				F74FDF9B1D5A021B006F21E3 /* JSIconsModel.h */,
+				F74FDF9C1D5A021B006F21E3 /* JSIconsModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -213,8 +251,8 @@
 		F74FDF2C1D59601B006F21E3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F74FDF721D597A57006F21E3 /* JSNavigationButton.h */,
-				F74FDF731D597A57006F21E3 /* JSNavigationButton.m */,
+				F74FDF721D597A57006F21E3 /* JSCustomFrameButton.h */,
+				F74FDF731D597A57006F21E3 /* JSCustomFrameButton.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -390,6 +428,29 @@
 			path = Frame;
 			sourceTree = "<group>";
 		};
+		F74FDF751D598955006F21E3 /* SubViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F74FDF7F1D59A51F006F21E3 /* HeaderLoopView */,
+				F74FDF761D598978006F21E3 /* JSScanViewController.h */,
+				F74FDF771D598978006F21E3 /* JSScanViewController.m */,
+				F74FDF7C1D599C7B006F21E3 /* JSHeaderView.h */,
+				F74FDF7D1D599C7B006F21E3 /* JSHeaderView.m */,
+			);
+			path = SubViewControllers;
+			sourceTree = "<group>";
+		};
+		F74FDF7F1D59A51F006F21E3 /* HeaderLoopView */ = {
+			isa = PBXGroup;
+			children = (
+				F74FDF801D59A536006F21E3 /* JSLoopView.h */,
+				F74FDF811D59A536006F21E3 /* JSLoopView.m */,
+				F74FDF831D59ADB9006F21E3 /* JSMenumView.h */,
+				F74FDF841D59ADB9006F21E3 /* JSMenumView.m */,
+			);
+			path = HeaderLoopView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -514,16 +575,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				F74FDF1A1D595F0E006F21E3 /* main.m in Sources */,
+				F74FDF941D59E8A4006F21E3 /* JSActivitiesModel.m in Sources */,
 				F74FDF441D596271006F21E3 /* UIColor+RandomColor.m in Sources */,
 				F74FDF4C1D596553006F21E3 /* JSNavigationController.m in Sources */,
+				F74FDF9D1D5A021B006F21E3 /* JSIconsModel.m in Sources */,
+				F74FDF7B1D599004006F21E3 /* JSNetworkManager.m in Sources */,
+				F74FDF971D59EA85006F21E3 /* JSHomeDataModel.m in Sources */,
 				F74FDF711D59742B006F21E3 /* UIView+JSFrame.m in Sources */,
-				F74FDF741D597A57006F21E3 /* JSNavigationButton.m in Sources */,
+				F74FDF9A1D5A015B006F21E3 /* JSFocusModel.m in Sources */,
+				F74FDF741D597A57006F21E3 /* JSCustomFrameButton.m in Sources */,
+				F74FDF7E1D599C7B006F21E3 /* JSHeaderView.m in Sources */,
 				F74FDF451D596271006F21E3 /* UIImage+Color.m in Sources */,
 				F74FDF491D59652D006F21E3 /* JSTabBarViewController.m in Sources */,
+				F74FDF821D59A536006F21E3 /* JSLoopView.m in Sources */,
 				F74FDF641D596B2C006F21E3 /* JSStoreTableViewController.m in Sources */,
+				F74FDF781D598978006F21E3 /* JSScanViewController.m in Sources */,
 				F74FDF671D596B46006F21E3 /* JSCartTableViewController.m in Sources */,
 				F74FDF611D596B0F006F21E3 /* JSHomeTableViewController.m in Sources */,
 				F74FDF161D595F0E006F21E3 /* AppDelegate.m in Sources */,
+				F74FDF851D59ADB9006F21E3 /* JSMenumView.m in Sources */,
 				F74FDF5E1D596A93006F21E3 /* JSMineTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
