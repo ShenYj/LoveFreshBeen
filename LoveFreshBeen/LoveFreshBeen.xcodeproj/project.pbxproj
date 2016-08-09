@@ -17,6 +17,10 @@
 		F74FDF451D596271006F21E3 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF431D596271006F21E3 /* UIImage+Color.m */; };
 		F74FDF491D59652D006F21E3 /* JSTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF481D59652D006F21E3 /* JSTabBarViewController.m */; };
 		F74FDF4C1D596553006F21E3 /* JSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF4B1D596553006F21E3 /* JSNavigationController.m */; };
+		F74FDF5E1D596A93006F21E3 /* JSMineTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF5D1D596A93006F21E3 /* JSMineTableViewController.m */; };
+		F74FDF611D596B0F006F21E3 /* JSHomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF601D596B0F006F21E3 /* JSHomeTableViewController.m */; };
+		F74FDF641D596B2C006F21E3 /* JSStoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF631D596B2C006F21E3 /* JSStoreTableViewController.m */; };
+		F74FDF671D596B46006F21E3 /* JSCartTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF661D596B46006F21E3 /* JSCartTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,14 @@
 		F74FDF481D59652D006F21E3 /* JSTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSTabBarViewController.m; sourceTree = "<group>"; };
 		F74FDF4A1D596553006F21E3 /* JSNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSNavigationController.h; sourceTree = "<group>"; };
 		F74FDF4B1D596553006F21E3 /* JSNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSNavigationController.m; sourceTree = "<group>"; };
+		F74FDF5C1D596A93006F21E3 /* JSMineTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSMineTableViewController.h; sourceTree = "<group>"; };
+		F74FDF5D1D596A93006F21E3 /* JSMineTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSMineTableViewController.m; sourceTree = "<group>"; };
+		F74FDF5F1D596B0F006F21E3 /* JSHomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSHomeTableViewController.h; sourceTree = "<group>"; };
+		F74FDF601D596B0F006F21E3 /* JSHomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSHomeTableViewController.m; sourceTree = "<group>"; };
+		F74FDF621D596B2C006F21E3 /* JSStoreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSStoreTableViewController.h; sourceTree = "<group>"; };
+		F74FDF631D596B2C006F21E3 /* JSStoreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSStoreTableViewController.m; sourceTree = "<group>"; };
+		F74FDF651D596B46006F21E3 /* JSCartTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSCartTableViewController.h; sourceTree = "<group>"; };
+		F74FDF661D596B46006F21E3 /* JSCartTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSCartTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +191,8 @@
 		F74FDF2A1D59601B006F21E3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F74FDF5F1D596B0F006F21E3 /* JSHomeTableViewController.h */,
+				F74FDF601D596B0F006F21E3 /* JSHomeTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -245,6 +259,8 @@
 		F74FDF321D59601B006F21E3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F74FDF5C1D596A93006F21E3 /* JSMineTableViewController.h */,
+				F74FDF5D1D596A93006F21E3 /* JSMineTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -276,6 +292,8 @@
 		F74FDF361D59601B006F21E3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F74FDF651D596B46006F21E3 /* JSCartTableViewController.h */,
+				F74FDF661D596B46006F21E3 /* JSCartTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -307,6 +325,8 @@
 		F74FDF3A1D59601B006F21E3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F74FDF621D596B2C006F21E3 /* JSStoreTableViewController.h */,
+				F74FDF631D596B2C006F21E3 /* JSStoreTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -480,7 +500,11 @@
 				F74FDF4C1D596553006F21E3 /* JSNavigationController.m in Sources */,
 				F74FDF451D596271006F21E3 /* UIImage+Color.m in Sources */,
 				F74FDF491D59652D006F21E3 /* JSTabBarViewController.m in Sources */,
+				F74FDF641D596B2C006F21E3 /* JSStoreTableViewController.m in Sources */,
+				F74FDF671D596B46006F21E3 /* JSCartTableViewController.m in Sources */,
+				F74FDF611D596B0F006F21E3 /* JSHomeTableViewController.m in Sources */,
 				F74FDF161D595F0E006F21E3 /* AppDelegate.m in Sources */,
+				F74FDF5E1D596A93006F21E3 /* JSMineTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

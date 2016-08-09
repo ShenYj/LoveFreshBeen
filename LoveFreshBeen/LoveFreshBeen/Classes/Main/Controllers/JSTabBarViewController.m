@@ -8,6 +8,10 @@
 
 #import "JSTabBarViewController.h"
 #import "JSNavigationController.h"
+#import "JSHomeTableViewController.h"
+#import "JSStoreTableViewController.h"
+#import "JSCartTableViewController.h"
+#import "JSMineTableViewController.h"
 
 @interface JSTabBarViewController ()
 
@@ -18,7 +22,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    // 添加tabBar子控制器
+    [self addChildViewControllers:[[JSHomeTableViewController alloc]init] withTitle:@"首页" withImageName:@"v2_home"];
+    [self addChildViewControllers:[[JSStoreTableViewController alloc]init] withTitle:@"闪电超市" withImageName:@"v2_order"];
+    [self addChildViewControllers:[[JSCartTableViewController alloc]init] withTitle:@"购物车" withImageName:@"v2_shopCart"];
+    [self addChildViewControllers:[[JSMineTableViewController alloc]init] withTitle:@"我的" withImageName:@"v2_my"];
+                                  
 }
 
 /**
@@ -30,8 +39,18 @@
  */
 - (void)addChildViewControllers:(UIViewController *)viewcontroller withTitle:(NSString *)title withImageName:(NSString *)imageName{
     
+    UIImage *image = [[UIImage imageNamed:imageName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *selectedImage = [[UIImage imageNamed:[NSString stringWithFormat:@"%@_r",imageName]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
     JSNavigationController *navigationController = [[JSNavigationController alloc] initWithRootViewController:viewcontroller];
     navigationController.view.backgroundColor = [UIColor js_randomColor];
+    
+    navigationController.tabBarItem.image = image;
+    navigationController.tabBarItem.selectedImage = selectedImage;
+    navigationController.tabBarItem.title = title;
+    
+    [navigationController.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]} forState:UIControlStateNormal];
+    
     [self addChildViewController:navigationController];
     
 }
