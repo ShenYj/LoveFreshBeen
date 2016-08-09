@@ -7,8 +7,13 @@
 //
 
 #import "JSHomeTableViewController.h"
+#import "JSNavigationButton.h"
+
 
 @interface JSHomeTableViewController ()
+
+@property (nonatomic,strong) JSNavigationButton *leftScanButton;
+@property (nonatomic,strong) JSNavigationButton *rightSearchButton;
 
 @end
 
@@ -17,12 +22,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    [self prepareNavigationItems];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
+- (void)prepareNavigationItems{
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.leftScanButton];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.rightSearchButton];
+    
+    
+
+}
+
+
+// 导航栏按钮点击事件
+- (void)clickLeftNavButton:(UIBarButtonItem *)button{
+    NSLog(@"点击左侧导航栏按钮");
+}
+
+- (void)clickRightNavButton:(UIBarButtonItem *)button{
+    NSLog(@"点击右侧导航栏按钮");
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -32,13 +54,39 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
+
     return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
+
     return 0;
+}
+
+
+#pragma mark -- 懒加载
+
+- (UIButton *)leftScanButton{
+    if (_leftScanButton == nil) {
+        _leftScanButton = [[JSNavigationButton alloc] init];
+        [_leftScanButton setImage:[UIImage imageNamed:@"icon_black_scancode"] forState:UIControlStateNormal];
+        [_leftScanButton setTitle:@"扫一扫" forState:UIControlStateNormal];
+        [_leftScanButton addTarget:self action:@selector(clickLeftNavButton:) forControlEvents:UIControlEventTouchUpInside];
+        [_leftScanButton sizeToFit];
+        
+    }
+    return _leftScanButton;
+}
+
+- (UIButton *)rightSearchButton{
+    if (_rightSearchButton == nil) {
+        _rightSearchButton = [[JSNavigationButton alloc] init];
+        [_rightSearchButton setImage:[UIImage imageNamed:@"icon_search"] forState:UIControlStateNormal];
+        [_rightSearchButton setTitle:@"搜索" forState:UIControlStateNormal];
+        [_rightSearchButton addTarget:self action:@selector(clickRightNavButton:) forControlEvents:UIControlEventTouchUpInside];
+        [_rightSearchButton sizeToFit];
+    }
+    return _rightSearchButton;
 }
 
 /*

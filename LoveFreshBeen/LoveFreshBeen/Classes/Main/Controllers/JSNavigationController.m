@@ -17,6 +17,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self prepareNavigationBar];
+    
+}
+
+// 设置导航栏布局
+- (void)prepareNavigationBar{
+    
+    // 设置导航栏背景图片
+    UIImage *backgroundImage = [UIImage imageNamed:@"navigationBar"];
+    
+    [self.navigationBar setBackgroundImage:[backgroundImage stretchableImageWithLeftCapWidth:backgroundImage.size.width*0.5 topCapHeight:backgroundImage.size.height*0.5] forBarMetrics:UIBarMetricsDefault];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

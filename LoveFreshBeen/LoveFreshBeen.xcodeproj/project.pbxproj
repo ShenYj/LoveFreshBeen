@@ -21,6 +21,8 @@
 		F74FDF611D596B0F006F21E3 /* JSHomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF601D596B0F006F21E3 /* JSHomeTableViewController.m */; };
 		F74FDF641D596B2C006F21E3 /* JSStoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF631D596B2C006F21E3 /* JSStoreTableViewController.m */; };
 		F74FDF671D596B46006F21E3 /* JSCartTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF661D596B46006F21E3 /* JSCartTableViewController.m */; };
+		F74FDF711D59742B006F21E3 /* UIView+JSFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF701D59742B006F21E3 /* UIView+JSFrame.m */; };
+		F74FDF741D597A57006F21E3 /* JSNavigationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF731D597A57006F21E3 /* JSNavigationButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,10 @@
 		F74FDF631D596B2C006F21E3 /* JSStoreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSStoreTableViewController.m; sourceTree = "<group>"; };
 		F74FDF651D596B46006F21E3 /* JSCartTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSCartTableViewController.h; sourceTree = "<group>"; };
 		F74FDF661D596B46006F21E3 /* JSCartTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSCartTableViewController.m; sourceTree = "<group>"; };
+		F74FDF6F1D59742B006F21E3 /* UIView+JSFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JSFrame.h"; sourceTree = "<group>"; };
+		F74FDF701D59742B006F21E3 /* UIView+JSFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JSFrame.m"; sourceTree = "<group>"; };
+		F74FDF721D597A57006F21E3 /* JSNavigationButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSNavigationButton.h; sourceTree = "<group>"; };
+		F74FDF731D597A57006F21E3 /* JSNavigationButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSNavigationButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +213,8 @@
 		F74FDF2C1D59601B006F21E3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F74FDF721D597A57006F21E3 /* JSNavigationButton.h */,
+				F74FDF731D597A57006F21E3 /* JSNavigationButton.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -348,6 +356,7 @@
 		F74FDF3D1D596265006F21E3 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				F74FDF6E1D59742B006F21E3 /* Frame */,
 				F74FDF3E1D596271006F21E3 /* UIColor */,
 				F74FDF411D596271006F21E3 /* UIImage */,
 			);
@@ -370,6 +379,15 @@
 				F74FDF431D596271006F21E3 /* UIImage+Color.m */,
 			);
 			path = UIImage;
+			sourceTree = "<group>";
+		};
+		F74FDF6E1D59742B006F21E3 /* Frame */ = {
+			isa = PBXGroup;
+			children = (
+				F74FDF6F1D59742B006F21E3 /* UIView+JSFrame.h */,
+				F74FDF701D59742B006F21E3 /* UIView+JSFrame.m */,
+			);
+			path = Frame;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -498,6 +516,8 @@
 				F74FDF1A1D595F0E006F21E3 /* main.m in Sources */,
 				F74FDF441D596271006F21E3 /* UIColor+RandomColor.m in Sources */,
 				F74FDF4C1D596553006F21E3 /* JSNavigationController.m in Sources */,
+				F74FDF711D59742B006F21E3 /* UIView+JSFrame.m in Sources */,
+				F74FDF741D597A57006F21E3 /* JSNavigationButton.m in Sources */,
 				F74FDF451D596271006F21E3 /* UIImage+Color.m in Sources */,
 				F74FDF491D59652D006F21E3 /* JSTabBarViewController.m in Sources */,
 				F74FDF641D596B2C006F21E3 /* JSStoreTableViewController.m in Sources */,
@@ -624,7 +644,7 @@
 				INFOPLIST_FILE = LoveFreshBeen/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "---ShenYJ---.LoveFreshBeen";
+				PRODUCT_BUNDLE_IDENTIFIER = "---ShenYJ---.LoveFreshBeenjs";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -639,7 +659,7 @@
 				INFOPLIST_FILE = LoveFreshBeen/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "---ShenYJ---.LoveFreshBeen";
+				PRODUCT_BUNDLE_IDENTIFIER = "---ShenYJ---.LoveFreshBeenjs";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
