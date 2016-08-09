@@ -30,6 +30,10 @@
  */
 - (void)addChildViewControllers:(UIViewController *)viewcontroller withTitle:(NSString *)title withImageName:(NSString *)imageName{
     
+    JSNavigationController *navigationController = [[JSNavigationController alloc] initWithRootViewController:viewcontroller];
+    navigationController.view.backgroundColor = [UIColor js_randomColor];
+    [self addChildViewController:navigationController];
+    
 }
 
 - (void)didReceiveMemoryWarning {
