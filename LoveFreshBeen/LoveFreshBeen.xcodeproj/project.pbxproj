@@ -15,6 +15,8 @@
 		F74FDF1A1D595F0E006F21E3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF151D595F0E006F21E3 /* main.m */; };
 		F74FDF441D596271006F21E3 /* UIColor+RandomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF401D596271006F21E3 /* UIColor+RandomColor.m */; };
 		F74FDF451D596271006F21E3 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF431D596271006F21E3 /* UIImage+Color.m */; };
+		F74FDF491D59652D006F21E3 /* JSTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF481D59652D006F21E3 /* JSTabBarViewController.m */; };
+		F74FDF4C1D596553006F21E3 /* JSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF4B1D596553006F21E3 /* JSNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,10 @@
 		F74FDF421D596271006F21E3 /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
 		F74FDF431D596271006F21E3 /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
 		F74FDF461D596299006F21E3 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		F74FDF471D59652D006F21E3 /* JSTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSTabBarViewController.h; sourceTree = "<group>"; };
+		F74FDF481D59652D006F21E3 /* JSTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSTabBarViewController.m; sourceTree = "<group>"; };
+		F74FDF4A1D596553006F21E3 /* JSNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSNavigationController.h; sourceTree = "<group>"; };
+		F74FDF4B1D596553006F21E3 /* JSNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,11 +126,11 @@
 			isa = PBXGroup;
 			children = (
 				F74FDF251D59601B006F21E3 /* Copy */,
-				F74FDF291D59601B006F21E3 /* Home */,
 				F74FDF2D1D59601B006F21E3 /* Main */,
-				F74FDF311D59601B006F21E3 /* Mine */,
-				F74FDF351D59601B006F21E3 /* ShoppingCart */,
+				F74FDF291D59601B006F21E3 /* Home */,
 				F74FDF391D59601B006F21E3 /* Store */,
+				F74FDF351D59601B006F21E3 /* ShoppingCart */,
+				F74FDF311D59601B006F21E3 /* Mine */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -204,6 +210,10 @@
 		F74FDF2E1D59601B006F21E3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F74FDF471D59652D006F21E3 /* JSTabBarViewController.h */,
+				F74FDF481D59652D006F21E3 /* JSTabBarViewController.m */,
+				F74FDF4A1D596553006F21E3 /* JSNavigationController.h */,
+				F74FDF4B1D596553006F21E3 /* JSNavigationController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -371,6 +381,7 @@
 		F74FDEEB1D595E6B006F21E3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = JS;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "___ShenYJ___";
 				TargetAttributes = {
@@ -466,7 +477,9 @@
 			files = (
 				F74FDF1A1D595F0E006F21E3 /* main.m in Sources */,
 				F74FDF441D596271006F21E3 /* UIColor+RandomColor.m in Sources */,
+				F74FDF4C1D596553006F21E3 /* JSNavigationController.m in Sources */,
 				F74FDF451D596271006F21E3 /* UIImage+Color.m in Sources */,
+				F74FDF491D59652D006F21E3 /* JSTabBarViewController.m in Sources */,
 				F74FDF161D595F0E006F21E3 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
