@@ -7,16 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7FFACEBF2EEE6B5FFAC4874A /* libPods-LoveFreshBeen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E67A52640A950D484BF1EE /* libPods-LoveFreshBeen.a */; };
 		F74FDF161D595F0E006F21E3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF0F1D595F0E006F21E3 /* AppDelegate.m */; };
 		F74FDF171D595F0E006F21E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F74FDF101D595F0E006F21E3 /* Assets.xcassets */; };
 		F74FDF181D595F0E006F21E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F74FDF111D595F0E006F21E3 /* LaunchScreen.storyboard */; };
 		F74FDF191D595F0E006F21E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F74FDF131D595F0E006F21E3 /* Main.storyboard */; };
 		F74FDF1A1D595F0E006F21E3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF151D595F0E006F21E3 /* main.m */; };
-		F74FDF221D595F6C006F21E3 /* UIColor+RandomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF1E1D595F6C006F21E3 /* UIColor+RandomColor.m */; };
-		F74FDF231D595F6C006F21E3 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF211D595F6C006F21E3 /* UIImage+Color.m */; };
+		F74FDF441D596271006F21E3 /* UIColor+RandomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF401D596271006F21E3 /* UIColor+RandomColor.m */; };
+		F74FDF451D596271006F21E3 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF431D596271006F21E3 /* UIImage+Color.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11F4FA4EA874E763BAA0CD09 /* Pods-LoveFreshBeen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoveFreshBeen.release.xcconfig"; path = "Pods/Target Support Files/Pods-LoveFreshBeen/Pods-LoveFreshBeen.release.xcconfig"; sourceTree = "<group>"; };
+		53E67A52640A950D484BF1EE /* libPods-LoveFreshBeen.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LoveFreshBeen.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		590D4A30071976506C0BC49F /* Pods-LoveFreshBeen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoveFreshBeen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LoveFreshBeen/Pods-LoveFreshBeen.debug.xcconfig"; sourceTree = "<group>"; };
 		F74FDEF31D595E6B006F21E3 /* LoveFreshBeen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveFreshBeen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F74FDF071D595E6C006F21E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F74FDF0E1D595F0E006F21E3 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -25,10 +29,11 @@
 		F74FDF121D595F0E006F21E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F74FDF141D595F0E006F21E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F74FDF151D595F0E006F21E3 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		F74FDF1D1D595F6C006F21E3 /* UIColor+RandomColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RandomColor.h"; sourceTree = "<group>"; };
-		F74FDF1E1D595F6C006F21E3 /* UIColor+RandomColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RandomColor.m"; sourceTree = "<group>"; };
-		F74FDF201D595F6C006F21E3 /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
-		F74FDF211D595F6C006F21E3 /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
+		F74FDF3F1D596271006F21E3 /* UIColor+RandomColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RandomColor.h"; sourceTree = "<group>"; };
+		F74FDF401D596271006F21E3 /* UIColor+RandomColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RandomColor.m"; sourceTree = "<group>"; };
+		F74FDF421D596271006F21E3 /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
+		F74FDF431D596271006F21E3 /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
+		F74FDF461D596299006F21E3 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,17 +41,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FFACEBF2EEE6B5FFAC4874A /* libPods-LoveFreshBeen.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2FFA2B21B90C5C35701B32C5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				590D4A30071976506C0BC49F /* Pods-LoveFreshBeen.debug.xcconfig */,
+				11F4FA4EA874E763BAA0CD09 /* Pods-LoveFreshBeen.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E3389155C1A7BD3FFBD96A4B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				53E67A52640A950D484BF1EE /* libPods-LoveFreshBeen.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F74FDEEA1D595E6B006F21E3 = {
 			isa = PBXGroup;
 			children = (
 				F74FDEF51D595E6B006F21E3 /* LoveFreshBeen */,
 				F74FDEF41D595E6B006F21E3 /* Products */,
+				2FFA2B21B90C5C35701B32C5 /* Pods */,
+				E3389155C1A7BD3FFBD96A4B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,6 +103,7 @@
 				F74FDF111D595F0E006F21E3 /* LaunchScreen.storyboard */,
 				F74FDF131D595F0E006F21E3 /* Main.storyboard */,
 				F74FDF151D595F0E006F21E3 /* main.m */,
+				F74FDF461D596299006F21E3 /* PrefixHeader.pch */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -85,28 +111,9 @@
 		F74FDF1B1D595F6C006F21E3 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				F74FDF1C1D595F6C006F21E3 /* UIColor */,
-				F74FDF1F1D595F6C006F21E3 /* UIImage */,
+				F74FDF3D1D596265006F21E3 /* Extension */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		F74FDF1C1D595F6C006F21E3 /* UIColor */ = {
-			isa = PBXGroup;
-			children = (
-				F74FDF1D1D595F6C006F21E3 /* UIColor+RandomColor.h */,
-				F74FDF1E1D595F6C006F21E3 /* UIColor+RandomColor.m */,
-			);
-			path = UIColor;
-			sourceTree = "<group>";
-		};
-		F74FDF1F1D595F6C006F21E3 /* UIImage */ = {
-			isa = PBXGroup;
-			children = (
-				F74FDF201D595F6C006F21E3 /* UIImage+Color.h */,
-				F74FDF211D595F6C006F21E3 /* UIImage+Color.m */,
-			);
-			path = UIImage;
 			sourceTree = "<group>";
 		};
 		F74FDF241D59601B006F21E3 /* Classes */ = {
@@ -308,6 +315,33 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		F74FDF3D1D596265006F21E3 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F74FDF3E1D596271006F21E3 /* UIColor */,
+				F74FDF411D596271006F21E3 /* UIImage */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		F74FDF3E1D596271006F21E3 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				F74FDF3F1D596271006F21E3 /* UIColor+RandomColor.h */,
+				F74FDF401D596271006F21E3 /* UIColor+RandomColor.m */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
+		F74FDF411D596271006F21E3 /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				F74FDF421D596271006F21E3 /* UIImage+Color.h */,
+				F74FDF431D596271006F21E3 /* UIImage+Color.m */,
+			);
+			path = UIImage;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -315,9 +349,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F74FDF0A1D595E6C006F21E3 /* Build configuration list for PBXNativeTarget "LoveFreshBeen" */;
 			buildPhases = (
+				C3F54EFEAD3150FCCE278146 /* [CP] Check Pods Manifest.lock */,
 				F74FDEEF1D595E6B006F21E3 /* Sources */,
 				F74FDEF01D595E6B006F21E3 /* Frameworks */,
 				F74FDEF11D595E6B006F21E3 /* Resources */,
+				3603CCE1489A1DBFB70665E5 /* [CP] Embed Pods Frameworks */,
+				B981F18E3091132EB141BF84 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -374,14 +411,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3603CCE1489A1DBFB70665E5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LoveFreshBeen/Pods-LoveFreshBeen-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B981F18E3091132EB141BF84 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LoveFreshBeen/Pods-LoveFreshBeen-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C3F54EFEAD3150FCCE278146 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F74FDEEF1D595E6B006F21E3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F74FDF1A1D595F0E006F21E3 /* main.m in Sources */,
-				F74FDF231D595F6C006F21E3 /* UIImage+Color.m in Sources */,
-				F74FDF221D595F6C006F21E3 /* UIColor+RandomColor.m in Sources */,
+				F74FDF441D596271006F21E3 /* UIColor+RandomColor.m in Sources */,
+				F74FDF451D596271006F21E3 /* UIImage+Color.m in Sources */,
 				F74FDF161D595F0E006F21E3 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,9 +579,12 @@
 		};
 		F74FDF0B1D595E6C006F21E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 590D4A30071976506C0BC49F /* Pods-LoveFreshBeen.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = LoveFreshBeen/SupportingFiles/PrefixHeader.pch;
 				INFOPLIST_FILE = LoveFreshBeen/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "---ShenYJ---.LoveFreshBeen";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -505,9 +593,12 @@
 		};
 		F74FDF0C1D595E6C006F21E3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11F4FA4EA874E763BAA0CD09 /* Pods-LoveFreshBeen.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = LoveFreshBeen/SupportingFiles/PrefixHeader.pch;
 				INFOPLIST_FILE = LoveFreshBeen/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "---ShenYJ---.LoveFreshBeen";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -533,6 +624,7 @@
 				F74FDF0C1D595E6C006F21E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
