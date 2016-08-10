@@ -14,7 +14,6 @@ static NSString *reuseIdentifier = @"ReuseIdentifier";
 
 @interface JSLoopView () <UICollectionViewDataSource,UICollectionViewDelegate>
 
-
 @end
 
 @implementation JSLoopView{
@@ -23,12 +22,11 @@ static NSString *reuseIdentifier = @"ReuseIdentifier";
     JSHomeDataModel *_data;
 
     // 轮播器图片资源
-    NSArray *_activitiesArr;
+    NSArray *_focusArr;
 
     // 定时器
     NSTimer *_timer;
 }
-
 
 
 - (instancetype)initWithFrame:(CGRect)frame withData:(JSHomeDataModel *)data{
@@ -38,7 +36,7 @@ static NSString *reuseIdentifier = @"ReuseIdentifier";
         // 成员变量赋值
         _data = data;
         // 设置图片资源数据
-        _activitiesArr = _data.activities;
+        _focusArr = _data.focus;
         
         // 设置随机背景色
         self.backgroundColor = [UIColor js_randomColor];
@@ -51,7 +49,7 @@ static NSString *reuseIdentifier = @"ReuseIdentifier";
         
         dispatch_async(dispatch_get_main_queue(), ^{
            
-            NSIndexPath *indexPath = [NSIndexPath indexPathForItem:_activitiesArr.count inSection:0];
+            NSIndexPath *indexPath = [NSIndexPath indexPathForItem:_focusArr.count inSection:0];
             [self scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
         });
         
@@ -80,7 +78,7 @@ static NSString *reuseIdentifier = @"ReuseIdentifier";
     NSIndexPath *currentIndexPath = [self indexPathsForVisibleItems].lastObject;
     
     NSInteger nextItem = currentIndexPath.item + 1;
-    if (nextItem == _activitiesArr.count) {
+    if (nextItem == _focusArr.count) {
         nextItem = 0;
     }
     
@@ -91,14 +89,14 @@ static NSString *reuseIdentifier = @"ReuseIdentifier";
 #pragma mark -- UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return _activitiesArr.count * 100;
+    return _focusArr.count * 100;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     JSCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    JSActivitiesModel *activitiesModel = _activitiesArr[indexPath.item % _activitiesArr.count];
+    JSActivitiesModel *activitiesModel = _focusArr[indexPath.item % _focusArr.count];
     
     cell.imageUrlString = activitiesModel.img;
     
@@ -111,7 +109,7 @@ static NSString *reuseIdentifier = @"ReuseIdentifier";
 
     CGFloat offsetX = scrollView.contentOffset.x;
     
-    NSInteger currentPageIndex = (NSInteger)( (offsetX+self.bounds.size.width*0.5) / self.bounds.size.width ) % _activitiesArr.count;
+    NSInteger currentPageIndex = (NSInteger)( (offsetX+self.bounds.size.width*0.5) / self.bounds.size.width ) % _focusArr.count;
     
     if (self.currentIndexHandler) {
         
@@ -127,13 +125,13 @@ static NSString *reuseIdentifier = @"ReuseIdentifier";
     
     
     if (currentIndex == 0) {
-        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:_activitiesArr.count inSection:0];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:_focusArr.count inSection:0];
         [self scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
         return;
     }
     
     if (currentIndex == [self numberOfItemsInSection:0] - 1) {
-        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:_activitiesArr.count - 1 inSection:0];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:_focusArr.count - 1 inSection:0];
         [self scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
         return;
     }
@@ -143,7 +141,7 @@ static NSString *reuseIdentifier = @"ReuseIdentifier";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    JSActivitiesModel *model = _activitiesArr[indexPath.item % _activitiesArr.count];
+    JSActivitiesModel *model = _focusArr[indexPath.item % _focusArr.count];
     NSURL *customURL = [NSURL URLWithString:model.customURL];
     //    [[UIApplication sharedApplication] openURL:customURL];
     

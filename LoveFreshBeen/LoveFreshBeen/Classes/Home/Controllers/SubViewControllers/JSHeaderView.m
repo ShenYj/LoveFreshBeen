@@ -114,7 +114,7 @@ static CGFloat pageControlMargin = 10;
     
     if (_pageControl == nil) {
         _pageControl = [[UIPageControl alloc] init];
-        _pageControl.numberOfPages = _data.activities.count;
+        _pageControl.numberOfPages = _data.focus.count;
         _pageControl.pageIndicatorTintColor = [UIColor whiteColor];
         _pageControl.currentPageIndicatorTintColor = [UIColor redColor];
     }
