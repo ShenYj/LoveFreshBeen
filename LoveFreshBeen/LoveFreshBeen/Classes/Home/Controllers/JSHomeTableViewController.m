@@ -58,7 +58,6 @@ CGFloat headerViewHeight = 250;
         [self presentViewController:safari animated:YES completion:nil];
     }];
     
-    headerView.backgroundColor = [UIColor js_randomColor];
     self.tableView.tableHeaderView = headerView;
 }
 
