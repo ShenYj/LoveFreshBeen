@@ -27,13 +27,13 @@
 		F74FDF7B1D599004006F21E3 /* JSNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF7A1D599004006F21E3 /* JSNetworkManager.m */; };
 		F74FDF7E1D599C7B006F21E3 /* JSHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF7D1D599C7B006F21E3 /* JSHeaderView.m */; };
 		F74FDF821D59A536006F21E3 /* JSLoopView.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF811D59A536006F21E3 /* JSLoopView.m */; };
-		F74FDF851D59ADB9006F21E3 /* JSMenumView.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF841D59ADB9006F21E3 /* JSMenumView.m */; };
 		F74FDF941D59E8A4006F21E3 /* JSActivitiesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF931D59E8A4006F21E3 /* JSActivitiesModel.m */; };
 		F74FDF971D59EA85006F21E3 /* JSHomeDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF961D59EA85006F21E3 /* JSHomeDataModel.m */; };
 		F74FDF9A1D5A015B006F21E3 /* JSFocusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF991D5A015B006F21E3 /* JSFocusModel.m */; };
 		F74FDF9D1D5A021B006F21E3 /* JSIconsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF9C1D5A021B006F21E3 /* JSIconsModel.m */; };
 		F74FDFA01D5A08F4006F21E3 /* JSFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDF9F1D5A08F4006F21E3 /* JSFlowLayout.m */; };
 		F74FDFA31D5A1DCA006F21E3 /* JSCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FDFA21D5A1DCA006F21E3 /* JSCollectionViewCell.m */; };
+		F751DC2C1D5ACB6400DCEE67 /* JSMenumView.m in Sources */ = {isa = PBXBuildFile; fileRef = F751DC2B1D5ACB6400DCEE67 /* JSMenumView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,8 +77,6 @@
 		F74FDF7D1D599C7B006F21E3 /* JSHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSHeaderView.m; sourceTree = "<group>"; };
 		F74FDF801D59A536006F21E3 /* JSLoopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSLoopView.h; sourceTree = "<group>"; };
 		F74FDF811D59A536006F21E3 /* JSLoopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSLoopView.m; sourceTree = "<group>"; };
-		F74FDF831D59ADB9006F21E3 /* JSMenumView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSMenumView.h; path = HeaderLoopView/JSMenumView.h; sourceTree = "<group>"; };
-		F74FDF841D59ADB9006F21E3 /* JSMenumView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSMenumView.m; path = HeaderLoopView/JSMenumView.m; sourceTree = "<group>"; };
 		F74FDF921D59E8A4006F21E3 /* JSActivitiesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSActivitiesModel.h; sourceTree = "<group>"; };
 		F74FDF931D59E8A4006F21E3 /* JSActivitiesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSActivitiesModel.m; sourceTree = "<group>"; };
 		F74FDF951D59EA85006F21E3 /* JSHomeDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSHomeDataModel.h; sourceTree = "<group>"; };
@@ -91,6 +89,8 @@
 		F74FDF9F1D5A08F4006F21E3 /* JSFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSFlowLayout.m; sourceTree = "<group>"; };
 		F74FDFA11D5A1DCA006F21E3 /* JSCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSCollectionViewCell.h; sourceTree = "<group>"; };
 		F74FDFA21D5A1DCA006F21E3 /* JSCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSCollectionViewCell.m; sourceTree = "<group>"; };
+		F751DC2A1D5ACB6400DCEE67 /* JSMenumView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSMenumView.h; sourceTree = "<group>"; };
+		F751DC2B1D5ACB6400DCEE67 /* JSMenumView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSMenumView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -441,9 +441,8 @@
 				F74FDF771D598978006F21E3 /* JSScanViewController.m */,
 				F74FDF7C1D599C7B006F21E3 /* JSHeaderView.h */,
 				F74FDF7D1D599C7B006F21E3 /* JSHeaderView.m */,
-				F74FDF831D59ADB9006F21E3 /* JSMenumView.h */,
-				F74FDF841D59ADB9006F21E3 /* JSMenumView.m */,
 				F74FDF7F1D59A51F006F21E3 /* HeaderLoopView */,
+				F751DC291D5ACB3F00DCEE67 /* BottomMenumView */,
 			);
 			path = SubViewControllers;
 			sourceTree = "<group>";
@@ -459,6 +458,15 @@
 				F74FDFA21D5A1DCA006F21E3 /* JSCollectionViewCell.m */,
 			);
 			path = HeaderLoopView;
+			sourceTree = "<group>";
+		};
+		F751DC291D5ACB3F00DCEE67 /* BottomMenumView */ = {
+			isa = PBXGroup;
+			children = (
+				F751DC2A1D5ACB6400DCEE67 /* JSMenumView.h */,
+				F751DC2B1D5ACB6400DCEE67 /* JSMenumView.m */,
+			);
+			path = BottomMenumView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -602,10 +610,10 @@
 				F74FDFA01D5A08F4006F21E3 /* JSFlowLayout.m in Sources */,
 				F74FDF641D596B2C006F21E3 /* JSStoreTableViewController.m in Sources */,
 				F74FDF781D598978006F21E3 /* JSScanViewController.m in Sources */,
+				F751DC2C1D5ACB6400DCEE67 /* JSMenumView.m in Sources */,
 				F74FDF671D596B46006F21E3 /* JSCartTableViewController.m in Sources */,
 				F74FDF611D596B0F006F21E3 /* JSHomeTableViewController.m in Sources */,
 				F74FDF161D595F0E006F21E3 /* AppDelegate.m in Sources */,
-				F74FDF851D59ADB9006F21E3 /* JSMenumView.m in Sources */,
 				F74FDF5E1D596A93006F21E3 /* JSMineTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

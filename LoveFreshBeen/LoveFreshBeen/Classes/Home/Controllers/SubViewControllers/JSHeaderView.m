@@ -10,6 +10,9 @@
 #import "JSLoopView.h"
 #import "JSMenumView.h"
 
+static CGFloat loopViewHeight = 200;
+extern CGFloat headerViewHeight;
+
 @interface JSHeaderView ()
 
 // 轮播CollectionView
@@ -66,7 +69,7 @@
     
     if (_collectionView == nil) {
         
-        _collectionView = [[JSLoopView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 200) withData:_data];
+        _collectionView = [[JSLoopView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, loopViewHeight) withData:_data];
         
         __weak typeof(self) weakSelf = self;
         [_collectionView setPresentSafariHandler:^(SFSafariViewController *safari) {
@@ -80,7 +83,7 @@
 - (UIView *)bottomMenumView{
     
     if (_bottomMenumView == nil) {
-        _bottomMenumView = [[JSMenumView alloc] init];
+        _bottomMenumView = [[JSMenumView alloc] initWithFrame:CGRectMake(0, loopViewHeight, SCREEN_WIDTH, headerViewHeight - loopViewHeight) withData:_data];
     }
     return _bottomMenumView;
 }

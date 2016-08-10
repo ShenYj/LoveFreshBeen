@@ -14,7 +14,7 @@
 #import "JSActivitiesModel.h"
 #import <SafariServices/SafariServices.h>
 
-static CGFloat headerViewHeight = 250;
+CGFloat headerViewHeight = 250;
 
 @interface JSHomeTableViewController ()
 
