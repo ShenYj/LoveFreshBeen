@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "JSHomeDataModel.h"
+#import <SafariServices/SafariServices.h>
 
 
 @interface JSLoopView : UICollectionView
 
 @property (nonatomic,strong) JSHomeDataModel *data;
+
+@property (nonatomic,copy) void(^presentSafariHandler)(SFSafariViewController *safariVC);
 
 - (instancetype)initWithFrame:(CGRect)frame withData:(JSHomeDataModel *)data;
 

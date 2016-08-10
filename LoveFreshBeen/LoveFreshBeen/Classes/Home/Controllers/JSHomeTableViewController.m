@@ -12,6 +12,7 @@
 #import "JSHeaderView.h"
 #import "JSHomeDataModel.h"
 #import "JSActivitiesModel.h"
+#import <SafariServices/SafariServices.h>
 
 static CGFloat headerViewHeight = 250;
 
@@ -52,6 +53,11 @@ static CGFloat headerViewHeight = 250;
 - (void)prepareHeaderView{
     
     JSHeaderView *headerView = [[JSHeaderView alloc] initWithFrame:CGRectMake(0, 0, 0, headerViewHeight) withData:_homeData];
+    
+    [headerView setPresentSafariHandler:^(SFSafariViewController *safari) {
+        [self presentViewController:safari animated:YES completion:nil];
+    }];
+    
     headerView.backgroundColor = [UIColor js_randomColor];
     self.tableView.tableHeaderView = headerView;
 }

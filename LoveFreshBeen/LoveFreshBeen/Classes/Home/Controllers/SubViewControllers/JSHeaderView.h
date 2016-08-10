@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "JSHomeDataModel.h"
-
+#import <SafariServices/SafariServices.h>
 
 @interface JSHeaderView : UIView
 
+@property (nonatomic,copy) void(^presentSafariHandler)(SFSafariViewController *safariVC);
 
 - (instancetype)initWithFrame:(CGRect)frame withData:(JSHomeDataModel *)data;
 

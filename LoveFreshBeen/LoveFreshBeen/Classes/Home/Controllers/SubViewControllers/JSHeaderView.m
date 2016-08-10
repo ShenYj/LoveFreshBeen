@@ -32,6 +32,8 @@
         _data = data;
         
         [self prepareHeaderView];
+        
+        
     }
     return self;
 }
@@ -43,7 +45,6 @@
     
     [self addSubview:self.collectionView];
     [self addSubview:self.bottomMenumView];
-    
     
 }
 
@@ -66,6 +67,11 @@
     if (_collectionView == nil) {
         
         _collectionView = [[JSLoopView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 200) withData:_data];
+        
+        __weak typeof(self) weakSelf = self;
+        [_collectionView setPresentSafariHandler:^(SFSafariViewController *safari) {
+            weakSelf.presentSafariHandler(safari);
+        }];
         
     }
     return _collectionView;

@@ -22,7 +22,7 @@ static NSString *reuseIdentifier = @"ReuseIdentifier";
     JSHomeDataModel *_data;
 
     // 轮播器图片资源
-    NSArray *_images;
+    NSArray *_activitiesArr;
     
 }
 
@@ -35,7 +35,8 @@ static NSString *reuseIdentifier = @"ReuseIdentifier";
         // 成员变量赋值
         _data = data;
         // 设置图片资源数据
-        _images = _data.activities;
+        _activitiesArr = _data.activities;
+        
         // 设置随机背景色
         self.backgroundColor = [UIColor js_randomColor];
 
@@ -47,7 +48,7 @@ static NSString *reuseIdentifier = @"ReuseIdentifier";
         
         dispatch_async(dispatch_get_main_queue(), ^{
            
-            NSIndexPath *indexPath = [NSIndexPath indexPathForItem:_images.count inSection:0];
+            NSIndexPath *indexPath = [NSIndexPath indexPathForItem:_activitiesArr.count inSection:0];
             [self scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
         });
         
@@ -60,14 +61,14 @@ static NSString *reuseIdentifier = @"ReuseIdentifier";
 #pragma mark -- UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return _images.count * 100;
+    return _activitiesArr.count * 100;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     JSCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    JSActivitiesModel *activitiesModel = _images[indexPath.item % _images.count];
+    JSActivitiesModel *activitiesModel = _activitiesArr[indexPath.item % _activitiesArr.count];
     
     cell.imageUrlString = activitiesModel.img;
     
@@ -82,15 +83,30 @@ static NSString *reuseIdentifier = @"ReuseIdentifier";
     NSInteger currentIndex = contentOffSetX / scrollView.bounds.size.width;
     
     if (currentIndex == 0) {
-        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:_images.count inSection:0];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:_activitiesArr.count inSection:0];
         [self scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
         return;
     }
     
     if (currentIndex == [self numberOfItemsInSection:0] - 1) {
-        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:_images.count - 1 inSection:0];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:_activitiesArr.count - 1 inSection:0];
         [self scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
         return;
+    }
+    
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    JSActivitiesModel *model = _activitiesArr[indexPath.item % _activitiesArr.count];
+    NSURL *customURL = [NSURL URLWithString:model.customURL];
+//    [[UIApplication sharedApplication] openURL:customURL];
+    SFSafariViewController *safariViewController = [[SFSafariViewController alloc] initWithURL:customURL];
+    
+    // 执行回调
+    if (self.presentSafariHandler) {
+        
+        self.presentSafariHandler(safariViewController);
     }
     
 }
