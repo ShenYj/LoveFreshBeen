@@ -12,11 +12,14 @@
 #import "JSHeaderView.h"
 #import "JSHomeDataModel.h"
 #import "JSActivitiesModel.h"
+#import "JSMenumNavController.h"
 #import <SafariServices/SafariServices.h>
+#import "JSMenumView.h"
+
 
 CGFloat headerViewHeight = 250;
 
-@interface JSHomeTableViewController ()
+@interface JSHomeTableViewController () <JSMenumViewDelegate>
 
 // 导航栏左侧扫一扫按钮
 @property (nonatomic,strong) JSCustomFrameButton *leftScanButton;
@@ -54,14 +57,47 @@ CGFloat headerViewHeight = 250;
     
     JSHeaderView *headerView = [[JSHeaderView alloc] initWithFrame:CGRectMake(0, 0, 0, headerViewHeight) withData:_homeData];
     
+    __weak typeof(self) weakSelf = self;
+    
     [headerView setPresentSafariHandler:^(SFSafariViewController *safari) {
-        [self presentViewController:safari animated:YES completion:nil];
+        [weakSelf presentViewController:safari animated:YES completion:nil];
     }];
+    
+    // 点击菜单区按钮
+    [headerView setMenumButtonHandler:^(JSMenumNavController *nav) {
+        [weakSelf.navigationController pushViewController:nav animated:YES];
+    }];
+    
+//    [headerView setMenumButtonHandler:^(NSInteger index) {
+//        
+//        JSIconsModel *model = _homeData.icons[index];
+//        UIWebView *webView = [[UIWebView alloc] init];
+//        [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:model.customURL]]];
+//        
+//        UIViewController *viewController = [[UIViewController alloc] init];
+//        viewController.view = webView;
+//        UINavigationController *navigation= [[UINavigationController alloc] initWithRootViewController:viewController];
+//        
+//
+//        
+////        [self.navigationController pushViewController:navigation animated:YES];
+//        
+//        NSLog(@"%zd",index);
+//        NSLog(@"%@",model.customURL);
+//    }];
+    
+//    for (UIView *view in headerView.subviews) {
+//        
+//        if ([view isKindOfClass:NSClassFromString(@"JSMenumView")]) {
+//            JSMenumView *menumView = (JSMenumView *)view;
+//            menumView.delegate = self;
+//        }
+//    }
     
     self.tableView.tableHeaderView = headerView;
 }
 
-// 请求首页数据
+#pragma mark -- 请求首页数据
 - (void)loadHomePageData{
     
     NSDictionary *para = @{@"call": @"1"};
@@ -72,7 +108,6 @@ CGFloat headerViewHeight = 250;
             return ;
         }
         NSDictionary *data = res[@"data"];
-//        NSLog(@"%@",data);
         
         JSHomeDataModel *dataModel = [JSHomeDataModel DataWithDict:data];
         // 成员变量赋值
@@ -83,11 +118,10 @@ CGFloat headerViewHeight = 250;
         
     }];
 
-    
 }
 
 
-// 设置导航栏视图
+#pragma mark -- 设置导航栏视图
 - (void)prepareNavigationItems{
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.leftScanButton];
@@ -96,7 +130,7 @@ CGFloat headerViewHeight = 250;
 }
 
 
-// 导航栏按钮点击事件
+#pragma mark -- 导航栏按钮点击事件
 - (void)clickLeftNavButton:(UIBarButtonItem *)button{
     
     JSScanViewController *scanViewController = [[JSScanViewController alloc] init];
@@ -111,6 +145,24 @@ CGFloat headerViewHeight = 250;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark -- JSMenumViewDelegate
+
+//- (void)menumView:(JSMenumView *)menumView withButton:(JSMenumButton *)button{
+//    
+//    
+//    JSIconsModel *model = _homeData.icons[button.tag - 1000];
+//    UIWebView *webView = [[UIWebView alloc] init];
+//    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:model.customURL]]];
+//    
+//    UIViewController *viewController = [[UIViewController alloc] init];
+//    viewController.view = webView;
+//    JSMenumNavController *navigation= [[JSMenumNavController alloc] initWithRootViewController:viewController];
+//    
+////    [self.navigationController pushViewController:navigation animated:YES];
+//    [self presentViewController:navigation animated:YES completion:nil];
+//    
+//}
 
 #pragma mark - Table view data source
 

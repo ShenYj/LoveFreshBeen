@@ -7,7 +7,14 @@
 //
 
 #import "JSMenumView.h"
-#import "JSMenumButtom.h"
+
+
+typedef enum : NSUInteger {
+    MenumButtonFirst = 1000,
+    MenumButtonSecond = 1001,
+    MenumButtonThird = 1002,
+    MenumButtonFourth = 1003,
+} MenumButtonType;
 
 static NSInteger const menumButtonCounts = 4;
 static CGFloat const menumButtonWidthAndHeight = 50;
@@ -41,13 +48,17 @@ static CGFloat const menumButtonWidthAndHeight = 50;
     for (int i = 0; i < menumButtonCounts; i ++) {
         
         JSFocusModel *model = _iconsArr[i];
-        JSMenumButtom *button = [[JSMenumButtom alloc] init];
+        JSMenumButton *button = [[JSMenumButton alloc] init];
         [self addSubview: button];
         
         
         [button sd_setImageWithURL:[NSURL URLWithString:model.img] forState:UIControlStateNormal];
         [button setTitle:model.name forState:UIControlStateNormal];
 
+        [button addTarget:self action:@selector(clickMenumAreaButton:) forControlEvents:UIControlEventTouchUpInside];
+        
+        button.tag = 1000 + i;
+        
     }
     
 }
@@ -62,7 +73,7 @@ static CGFloat const menumButtonWidthAndHeight = 50;
     
     for (UIView *view in self.subviews) {
         
-        if ([view isKindOfClass:NSClassFromString(@"JSMenumButtom")]) {
+        if ([view isKindOfClass:NSClassFromString(@"JSMenumButton")]) {
             
             CGFloat x = marginHorizontal + ( marginHorizontal + menumButtonWidthAndHeight) * index;
             
@@ -73,4 +84,18 @@ static CGFloat const menumButtonWidthAndHeight = 50;
         }
     }
 }
+
+// 菜单区按钮的点击事件
+- (void)clickMenumAreaButton:(JSMenumButton *)sender{
+    
+    
+    if ([self.delegate respondsToSelector:@selector(menumView:withButton:)]) {
+        [self.delegate menumView:self withButton:sender];
+    }
+    
+//    if(self.menumButtonHandler){
+//        self.menumButtonHandler(navigation);
+//    }
+}
+
 @end

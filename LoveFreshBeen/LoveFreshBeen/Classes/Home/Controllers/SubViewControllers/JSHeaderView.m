@@ -69,6 +69,10 @@ static CGFloat pageControlMargin = 10;
     [self.collectionView setCurrentIndexHandler:^(NSInteger index) {
         weakSelf.pageControl.currentPage = index;
     }];
+    
+//    [self.bottomMenumView setMenumButtonHandler:^(JSMenumNavController *nav) {
+//        weakSelf.menumButtonHandler(nav);
+//    }];
 }
 
 
@@ -92,6 +96,7 @@ static CGFloat pageControlMargin = 10;
 
 #pragma mark -- 懒加载
 
+// 轮播器
 - (JSLoopView *)collectionView{
     
     if (_collectionView == nil) {
@@ -102,14 +107,17 @@ static CGFloat pageControlMargin = 10;
     return _collectionView;
 }
 
+// 菜单区
 - (UIView *)bottomMenumView{
     
     if (_bottomMenumView == nil) {
+        
         _bottomMenumView = [[JSMenumView alloc] initWithFrame:CGRectMake(0, loopViewHeight, SCREEN_WIDTH, headerViewHeight - loopViewHeight) withData:_data];
     }
     return _bottomMenumView;
 }
 
+// pageControl
 - (UIPageControl *)pageControl{
     
     if (_pageControl == nil) {

@@ -6,10 +6,10 @@
 //  Copyright © 2016年 ___ShenYJ___. All rights reserved.
 //
 
-#import "JSMenumButtom.h"
+#import "JSMenumButton.h"
 #import "UIView+JSFrame.h"
 
-@implementation JSMenumButtom
+@implementation JSMenumButton
 
 - (instancetype)init{
     

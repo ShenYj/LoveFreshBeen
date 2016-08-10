@@ -67,19 +67,24 @@ static NSString *reuseIdentifier = @"ReuseIdentifier";
     
     [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
 }
+
 // 停止定时器
 - (void)stopTimer{
+    
     [_timer invalidate];
     _timer = nil;
 }
+
 // 定时器自动翻页方法
 - (void)nextPage{
     
     NSIndexPath *currentIndexPath = [self indexPathsForVisibleItems].lastObject;
     
     NSInteger nextItem = currentIndexPath.item + 1;
-    if (nextItem == _focusArr.count) {
-        nextItem = 0;
+    
+    if (nextItem == _focusArr.count * 100) {
+        
+        nextItem = _focusArr.count;
     }
     
     [self scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:nextItem inSection:currentIndexPath.section] atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
@@ -89,6 +94,7 @@ static NSString *reuseIdentifier = @"ReuseIdentifier";
 #pragma mark -- UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    
     return _focusArr.count * 100;
 }
 
@@ -135,15 +141,16 @@ static NSString *reuseIdentifier = @"ReuseIdentifier";
         [self scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
         return;
     }
-
     
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    JSActivitiesModel *model = _focusArr[indexPath.item % _focusArr.count];
-    NSURL *customURL = [NSURL URLWithString:model.customURL];
+    JSFocusModel *model = _focusArr[indexPath.item % _focusArr.count];
+    
+    NSURL *customURL = [NSURL URLWithString:model.toURL];
     //    [[UIApplication sharedApplication] openURL:customURL];
+    NSLog(@"%@",customURL);
     
     SFSafariViewController *safariViewController = [[SFSafariViewController alloc] initWithURL:customURL];
     
@@ -160,6 +167,7 @@ static NSString *reuseIdentifier = @"ReuseIdentifier";
     [self stopTimer];
 }
 
+// 停止拖拽时,开启定时器
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
     
     [self startTimer];

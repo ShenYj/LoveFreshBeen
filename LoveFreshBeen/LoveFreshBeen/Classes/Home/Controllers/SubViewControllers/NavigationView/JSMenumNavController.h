@@ -1,5 +1,5 @@
 //
-//  JSMenumButtom.h
+//  JSMenumNavController.h
 //  LoveFreshBeen
 //
 //  Created by ShenYj on 16/8/10.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JSMenumButtom : UIButton
+@interface JSMenumNavController : UINavigationController
 
 @end
