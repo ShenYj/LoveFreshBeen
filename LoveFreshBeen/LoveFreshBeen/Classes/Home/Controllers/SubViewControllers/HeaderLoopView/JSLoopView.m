@@ -12,7 +12,7 @@
 
 static NSString *reuseIdentifier = @"ReuseIdentifier";
 
-@interface JSLoopView () <UICollectionViewDataSource>
+@interface JSLoopView () <UICollectionViewDataSource,UICollectionViewDelegate>
 
 @end
 
@@ -23,6 +23,7 @@ static NSString *reuseIdentifier = @"ReuseIdentifier";
 
     // 轮播器图片资源
     NSArray *_images;
+    
 }
 
 
@@ -39,9 +40,16 @@ static NSString *reuseIdentifier = @"ReuseIdentifier";
         self.backgroundColor = [UIColor js_randomColor];
 
         self.dataSource = self;
+        self.delegate = self;
         
         // 注册Cell
         [self registerClass:[JSCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+           
+            NSIndexPath *indexPath = [NSIndexPath indexPathForItem:_images.count inSection:0];
+            [self scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+        });
         
         
     }
@@ -52,18 +60,39 @@ static NSString *reuseIdentifier = @"ReuseIdentifier";
 #pragma mark -- UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return _images.count;
+    return _images.count * 100;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     JSCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    JSActivitiesModel *activitiesModel = _images[indexPath.item];
+    JSActivitiesModel *activitiesModel = _images[indexPath.item % _images.count];
     
     cell.imageUrlString = activitiesModel.img;
     
     return cell;
+}
+
+#pragma mark -- UICollectionViewDelegate
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    
+    CGFloat contentOffSetX = scrollView.contentOffset.x;
+    NSInteger currentIndex = contentOffSetX / scrollView.bounds.size.width;
+    
+    if (currentIndex == 0) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:_images.count inSection:0];
+        [self scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+        return;
+    }
+    
+    if (currentIndex == [self numberOfItemsInSection:0] - 1) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:_images.count - 1 inSection:0];
+        [self scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+        return;
+    }
+    
 }
 
 @end
