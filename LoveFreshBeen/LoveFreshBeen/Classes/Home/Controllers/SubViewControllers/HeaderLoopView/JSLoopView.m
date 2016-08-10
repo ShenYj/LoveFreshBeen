@@ -14,6 +14,7 @@ static NSString *reuseIdentifier = @"ReuseIdentifier";
 
 @interface JSLoopView () <UICollectionViewDataSource,UICollectionViewDelegate>
 
+
 @end
 
 @implementation JSLoopView{
@@ -23,7 +24,9 @@ static NSString *reuseIdentifier = @"ReuseIdentifier";
 
     // 轮播器图片资源
     NSArray *_activitiesArr;
-    
+
+    // 定时器
+    NSTimer *_timer;
 }
 
 
@@ -52,11 +55,38 @@ static NSString *reuseIdentifier = @"ReuseIdentifier";
             [self scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
         });
         
+        // 开启定时器
+        [self startTimer];
         
     }
     return self;
 }
 
+// 开启定时器
+- (void)startTimer{
+    
+    _timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(nextPage) userInfo:nil repeats:YES];
+    
+    [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+}
+// 停止定时器
+- (void)stopTimer{
+    [_timer invalidate];
+    _timer = nil;
+}
+// 定时器自动翻页方法
+- (void)nextPage{
+    
+    NSIndexPath *currentIndexPath = [self indexPathsForVisibleItems].lastObject;
+    
+    NSInteger nextItem = currentIndexPath.item + 1;
+    if (nextItem == _activitiesArr.count) {
+        nextItem = 0;
+    }
+    
+    [self scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:nextItem inSection:currentIndexPath.section] atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
+    
+}
 
 #pragma mark -- UICollectionViewDataSource
 
@@ -77,10 +107,24 @@ static NSString *reuseIdentifier = @"ReuseIdentifier";
 
 #pragma mark -- UICollectionViewDelegate
 
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+
+    CGFloat offsetX = scrollView.contentOffset.x;
     
+    NSInteger currentPageIndex = (NSInteger)( (offsetX+self.bounds.size.width*0.5) / self.bounds.size.width ) % _activitiesArr.count;
+    
+    if (self.currentIndexHandler) {
+        
+        self.currentIndexHandler(currentPageIndex);
+    }
+    
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+
     CGFloat contentOffSetX = scrollView.contentOffset.x;
     NSInteger currentIndex = contentOffSetX / scrollView.bounds.size.width;
+    
     
     if (currentIndex == 0) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:_activitiesArr.count inSection:0];
@@ -93,6 +137,7 @@ static NSString *reuseIdentifier = @"ReuseIdentifier";
         [self scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
         return;
     }
+
     
 }
 
@@ -100,7 +145,8 @@ static NSString *reuseIdentifier = @"ReuseIdentifier";
     
     JSActivitiesModel *model = _activitiesArr[indexPath.item % _activitiesArr.count];
     NSURL *customURL = [NSURL URLWithString:model.customURL];
-//    [[UIApplication sharedApplication] openURL:customURL];
+    //    [[UIApplication sharedApplication] openURL:customURL];
+    
     SFSafariViewController *safariViewController = [[SFSafariViewController alloc] initWithURL:customURL];
     
     // 执行回调
@@ -110,5 +156,16 @@ static NSString *reuseIdentifier = @"ReuseIdentifier";
     }
     
 }
+// 当开始拖拽时,停止停止器
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    
+    [self stopTimer];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    
+    [self startTimer];
+}
+
 
 @end

@@ -10,15 +10,19 @@
 #import "JSLoopView.h"
 #import "JSMenumView.h"
 
-static CGFloat loopViewHeight = 200;
 extern CGFloat headerViewHeight;
-
+static CGFloat loopViewHeight = 200;
+static CGFloat pageControlHeight = 20;
+static CGFloat pageControlWidth = 100;
+static CGFloat pageControlMargin = 10;
 @interface JSHeaderView ()
 
 // 轮播CollectionView
 @property (nonatomic,strong) JSLoopView *collectionView;
 // 底部的菜单区
 @property (nonatomic,strong) JSMenumView *bottomMenumView;
+// PageControl
+@property (nonatomic,strong) UIPageControl *pageControl;
 
 @end
 
@@ -36,6 +40,7 @@ extern CGFloat headerViewHeight;
         
         [self prepareHeaderView];
         
+        [self setupUI];
         
     }
     return self;
@@ -48,9 +53,23 @@ extern CGFloat headerViewHeight;
     
     [self addSubview:self.collectionView];
     [self addSubview:self.bottomMenumView];
+    [self addSubview:self.pageControl];
+    
     
 }
-
+- (void)setupUI{
+    
+    __weak typeof(self) weakSelf = self;
+    
+    // 点击轮播图片跳转
+    [self.collectionView setPresentSafariHandler:^(SFSafariViewController *safari) {
+        weakSelf.presentSafariHandler(safari);
+    }];
+    
+    [self.collectionView setCurrentIndexHandler:^(NSInteger index) {
+        weakSelf.pageControl.currentPage = index;
+    }];
+}
 
 
 - (void)layoutSubviews{
@@ -60,6 +79,14 @@ extern CGFloat headerViewHeight;
         make.top.mas_equalTo(self.collectionView.mas_bottom);
         make.left.right.bottom.mas_equalTo(self);
     }];
+    
+    [self.pageControl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(self.collectionView.mas_right).mas_offset(-pageControlMargin);
+        make.bottom.mas_equalTo(self.collectionView).mas_offset(-pageControlMargin);
+        make.width.mas_equalTo(pageControlWidth);
+        make.height.mas_equalTo(pageControlHeight);
+    }];
+    
 }
 
 
@@ -71,11 +98,6 @@ extern CGFloat headerViewHeight;
         
         _collectionView = [[JSLoopView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, loopViewHeight) withData:_data];
         
-        __weak typeof(self) weakSelf = self;
-        [_collectionView setPresentSafariHandler:^(SFSafariViewController *safari) {
-            weakSelf.presentSafariHandler(safari);
-        }];
-        
     }
     return _collectionView;
 }
@@ -86,6 +108,17 @@ extern CGFloat headerViewHeight;
         _bottomMenumView = [[JSMenumView alloc] initWithFrame:CGRectMake(0, loopViewHeight, SCREEN_WIDTH, headerViewHeight - loopViewHeight) withData:_data];
     }
     return _bottomMenumView;
+}
+
+- (UIPageControl *)pageControl{
+    
+    if (_pageControl == nil) {
+        _pageControl = [[UIPageControl alloc] init];
+        _pageControl.numberOfPages = _data.activities.count;
+        _pageControl.pageIndicatorTintColor = [UIColor whiteColor];
+        _pageControl.currentPageIndicatorTintColor = [UIColor redColor];
+    }
+    return _pageControl;
 }
 
 @end

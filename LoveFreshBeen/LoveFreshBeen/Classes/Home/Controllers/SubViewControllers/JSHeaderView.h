@@ -12,7 +12,7 @@
 
 @interface JSHeaderView : UIView
 
-@property (nonatomic,copy) void(^presentSafariHandler)(SFSafariViewController *safariVC);
+@property (nonatomic,copy) void(^presentSafariHandler)(SFSafariViewController *safariVC);// modal展示控制器
 
 - (instancetype)initWithFrame:(CGRect)frame withData:(JSHomeDataModel *)data;
 
