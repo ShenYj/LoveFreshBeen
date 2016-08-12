@@ -173,5 +173,10 @@ static NSString *reuseIdentifier = @"ReuseIdentifier";
     [self startTimer];
 }
 
+- (void)dealloc{
+    
+    [_timer invalidate];
+    _timer = nil;
+}
 
 @end

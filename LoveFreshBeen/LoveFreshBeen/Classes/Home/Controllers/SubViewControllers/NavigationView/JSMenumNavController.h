@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JSIconsModel.h"
+
 
 @interface JSMenumNavController : UINavigationController
+
+
+- (instancetype)initWithRootViewController:(UIViewController *)rootViewController withJSIconsModel:(JSIconsModel *)model;
 
 @end

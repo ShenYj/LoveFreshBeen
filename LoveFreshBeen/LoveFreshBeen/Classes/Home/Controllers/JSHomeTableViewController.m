@@ -28,6 +28,9 @@ CGFloat headerViewHeight = 250;
 // 自定义HeaderView
 @property (nonatomic,strong) JSHeaderView *headerView;
 
+// UIWebView
+@property (nonatomic,strong) UIWebView *webView;
+
 
 @end
 
@@ -65,7 +68,9 @@ CGFloat headerViewHeight = 250;
     
     // 点击菜单区按钮
     [headerView setMenumButtonHandler:^(JSMenumNavController *nav) {
+        
         [weakSelf.navigationController pushViewController:nav animated:YES];
+        
     }];
     
 //    [headerView setMenumButtonHandler:^(NSInteger index) {
@@ -86,13 +91,13 @@ CGFloat headerViewHeight = 250;
 //        NSLog(@"%@",model.customURL);
 //    }];
     
-//    for (UIView *view in headerView.subviews) {
-//        
-//        if ([view isKindOfClass:NSClassFromString(@"JSMenumView")]) {
-//            JSMenumView *menumView = (JSMenumView *)view;
-//            menumView.delegate = self;
-//        }
-//    }
+    for (UIView *view in headerView.subviews) {
+        
+        if ([view isKindOfClass:NSClassFromString(@"JSMenumView")]) {
+            JSMenumView *menumView = (JSMenumView *)view;
+            menumView.delegate = self;
+        }
+    }
     
     self.tableView.tableHeaderView = headerView;
 }
@@ -139,6 +144,7 @@ CGFloat headerViewHeight = 250;
 
 - (void)clickRightNavButton:(UIBarButtonItem *)button{
     NSLog(@"点击右侧导航栏按钮");
+    [self.webView reload];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -146,23 +152,41 @@ CGFloat headerViewHeight = 250;
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark -- present webView界面导航栏按钮点击事件
+
+- (void)clickLeftBarButtonItem:(UIBarButtonItem *)sender{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)clickRightBarButtonItem:(UIBarButtonItem *)sender{
+    
+    NSLog(@"刷新页面");
+}
+
+
 #pragma mark -- JSMenumViewDelegate
 
-//- (void)menumView:(JSMenumView *)menumView withButton:(JSMenumButton *)button{
-//    
-//    
-//    JSIconsModel *model = _homeData.icons[button.tag - 1000];
-//    UIWebView *webView = [[UIWebView alloc] init];
-//    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:model.customURL]]];
-//    
-//    UIViewController *viewController = [[UIViewController alloc] init];
-//    viewController.view = webView;
-//    JSMenumNavController *navigation= [[JSMenumNavController alloc] initWithRootViewController:viewController];
-//    
-////    [self.navigationController pushViewController:navigation animated:YES];
-//    [self presentViewController:navigation animated:YES completion:nil];
-//    
-//}
+- (void)menumView:(JSMenumView *)menumView withButton:(JSMenumButton *)button{
+    
+    
+    JSIconsModel *model = _homeData.icons[button.tag - 1000];
+    UIWebView *webView = [[UIWebView alloc] init];
+    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:model.customURL]]];
+    
+    UIViewController *viewController = [[UIViewController alloc] init];
+    viewController.view = webView;
+    JSMenumNavController *navigation= [[JSMenumNavController alloc] initWithRootViewController:viewController withJSIconsModel:model];
+    
+    viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"v2_goback"] style:UIBarButtonItemStylePlain target:self action:@selector(clickLeftBarButtonItem:)];
+    viewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"v2_refresh"] style:UIBarButtonItemStylePlain target:self action:@selector(clickRightBarButtonItem:)];
+    
+    self.webView = webView;
+    
+    //    [self.navigationController pushViewController:navigation animated:YES];
+    [self presentViewController:navigation animated:YES completion:nil];
+    
+}
 
 #pragma mark - Table view data source
 
