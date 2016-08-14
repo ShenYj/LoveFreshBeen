@@ -15,6 +15,7 @@
 #import "JSMenumNavController.h"
 #import <SafariServices/SafariServices.h>
 #import "JSMenumView.h"
+#import <WebKit/WebKit.h>
 
 
 CGFloat headerViewHeight = 250;
@@ -29,7 +30,7 @@ CGFloat headerViewHeight = 250;
 @property (nonatomic,strong) JSHeaderView *headerView;
 
 // UIWebView
-@property (nonatomic,strong) UIWebView *webView;
+@property (nonatomic,strong) WKWebView *webView;
 
 
 @end
@@ -171,8 +172,10 @@ CGFloat headerViewHeight = 250;
     
     
     JSIconsModel *model = _homeData.icons[button.tag - 1000];
-    UIWebView *webView = [[UIWebView alloc] init];
+//    UIWebView *webView = [[UIWebView alloc] init];
+    WKWebView *webView = [[WKWebView alloc] init];
     [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:model.customURL]]];
+    
     
     UIViewController *viewController = [[UIViewController alloc] init];
     viewController.view = webView;
@@ -183,7 +186,7 @@ CGFloat headerViewHeight = 250;
     
     self.webView = webView;
     
-    //    [self.navigationController pushViewController:navigation animated:YES];
+//        [self.navigationController pushViewController:navigation animated:YES];
     [self presentViewController:navigation animated:YES completion:nil];
     
 }
